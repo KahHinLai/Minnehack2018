@@ -44,7 +44,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Start A New Plan"
+                android:onClick="continueToDashboard"
+                android:text="Continue Current Plan"
                 android:textColor="#000000" />
 
             <Button
@@ -53,7 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Continue Current Plan"
+                android:onClick="startForm"
+                android:text="Start A New Plan"
                 android:textColor="#000000" />
 
         </LinearLayout>
