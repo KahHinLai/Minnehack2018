@@ -107,7 +107,7 @@ public class DashBoardActivity extends AppCompatActivity{
                                                   textViewAcceleration.setText(String.valueOf(maccel-9.8));
                                               }
                                               if (maccel - 9.8 > max_acceleration) {
-                                                  AlertMessage.setText("acceleration exceed max acceleration");
+                                                  AlertMessage.setText("acceleration("+String.valueOf(maccel-9.8)+") exceed max acceleration: " + String.valueOf(max_acceleration));
                                               }
                                           }
                                       }
