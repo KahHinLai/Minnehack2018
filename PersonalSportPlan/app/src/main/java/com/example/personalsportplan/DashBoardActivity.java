@@ -18,6 +18,12 @@ import android.view.View;
 import org.w3c.dom.Text;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import android.app.NotificationManager;
+import android.support.v4.app.NotificationCompat;
+import android.content.Intent;
+import android.app.PendingIntent;
+import android.support.v4.app.TaskStackBuilder;
+import android.app.Activity;
 
 public class DashBoardActivity extends AppCompatActivity{
 
@@ -36,6 +42,7 @@ public class DashBoardActivity extends AppCompatActivity{
     float max_heart_rate;
     float max_steps;
     float max_rotation;
+    int Id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,7 @@ public class DashBoardActivity extends AppCompatActivity{
         registerForSensorEvents();
         setupDetectorTimestampUpdaterThread();
         AlertMessage = (TextView) findViewById(R.id.alert_message);
+        Id = 0;
 
     }
     public void registerForSensorEvents() {
@@ -108,6 +116,7 @@ public class DashBoardActivity extends AppCompatActivity{
                                               }
                                               if (maccel - 9.8 > max_acceleration) {
                                                   AlertMessage.setText("acceleration("+String.valueOf(maccel-9.8)+") exceed max acceleration: " + String.valueOf(max_acceleration));
+                                                  sendNotification();
                                               }
                                           }
                                       }
@@ -220,5 +229,39 @@ public class DashBoardActivity extends AppCompatActivity{
 
     public void clearalert(View v) {
       AlertMessage.setText("");
+    }
+
+    public void sendNotification() {
+        // The id of the channel.
+        String CHANNEL_ID = "my_channel_01";
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this, CHANNEL_ID)
+                        .setContentTitle("My notification")
+                        .setContentText("Hello World!");
+// Creates an explicit intent for an Activity in your app
+        Intent resultIntent = new Intent(this, ResultActivity.class);
+
+// The stack builder object will contain an artificial back stack for the
+// started Activity.
+// This ensures that navigating backward from the Activity leads out of
+// your app to the Home screen.
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+// Adds the back stack for the Intent (but not the Intent itself)
+        stackBuilder.addParentStack(ResultActivity.class);
+// Adds the Intent that starts the Activity to the top of the stack
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(
+                        0,
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        mBuilder.setContentIntent(resultPendingIntent);
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+// mNotificationId is a unique integer your app uses to identify the
+// notification. For example, to cancel the notification, you can pass its ID
+// number to NotificationManager.cancel().
+        mNotificationManager.notify(1, mBuilder.build());
     }
 }
