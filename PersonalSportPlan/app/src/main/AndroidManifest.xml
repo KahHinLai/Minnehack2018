@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".startFormActivity" />
-        <activity android:name=".DashBoardActivity"></activity>
+        <activity android:name=".DashBoardActivity" />
+        <activity android:name=".fillingFormActivity"></activity>
     </application>
 
 </manifest>
