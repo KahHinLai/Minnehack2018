@@ -1,6 +1,7 @@
 package com.example.personalsportplan;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -158,5 +159,17 @@ public class FullscreenActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    public void startForm(View view) {
+        // do something in start button
+        Intent intent = new Intent(this, startFormActivity.class);
+        startActivity(intent);
+    }
+
+    public void continueToDashboard(View view) {
+        // do something in continue button
+        Intent intent = new Intent(this, DashBoardActivity.class);
+        startActivity(intent);
     }
 }

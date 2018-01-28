@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".startFormActivity" />
+        <activity android:name=".DashBoardActivity"></activity>
     </application>
 
 </manifest>
