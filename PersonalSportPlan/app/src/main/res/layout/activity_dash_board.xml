@@ -5,5 +5,148 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.personalsportplan.DashBoardActivity">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DashBoard"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20px">
+
+            <TableRow
+                android:layout_width="313dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="39dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8px"
+                    android:background="@color/black_overlay"
+                    android:text="ID1:"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/dashb_id1"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8px"
+                    android:text="value1"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8px"
+                    android:background="@color/black_overlay"
+                    android:text="ID2:"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/dashb_id2"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8px"
+                    android:text="value2"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8px"
+                    android:background="@color/black_overlay"
+                    android:text="ID3:"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/dashb_id3"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8px"
+                    android:text="value3"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8px"
+                    android:background="@color/black_overlay"
+                    android:text="ID4:"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/dashb_id4"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8px"
+                    android:text="value4"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8px"
+                    android:background="@color/black_overlay"
+                    android:text="ID5:"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/dashb_id5"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8px"
+                    android:text="value5"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alert"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_margin="16dp"
+            android:background="#FC2D1E"/>
+
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>

@@ -5,5 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.personalsportplan.startFormActivity">
+      <FrameLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:fitsSystemWindows="true">
+          <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              >
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="To Start a new plan"
+              android:textAlignment="center"
+              android:layout_centerVertical="true"
+              android:textSize="24dp" />
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="We need some information from you."
+              android:textAlignment="center"
+              android:layout_margin="16px"
+              android:textSize="24dp" />
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/fullscreen_content_controls"
+              style="?metaButtonBarStyle"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="bottom|center_horizontal"
+              android:background="@color/black_overlay"
+              android:orientation="vertical"
+              tools:ignore="UselessParent">
+
+
+              <Button
+                  android:id="@+id/start_form_agree_btn"
+                  style="?metaButtonBarButtonStyle"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:text="Agree"
+                  android:textColor="#000000" />
+
+          </LinearLayout>
+
+      </FrameLayout>
+
 
 </android.support.constraint.ConstraintLayout>
