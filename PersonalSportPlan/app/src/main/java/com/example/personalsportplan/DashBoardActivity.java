@@ -24,39 +24,23 @@ public class DashBoardActivity extends AppCompatActivity{
     private long timestamp;
     private TextView textViewStepCounter;
     private TextView textViewAcceleration;
+    private TextView textViewRotation;
     private Thread detectorTimeStampUpdaterThread;
     private Handler handler;
     private boolean isRunning = true;
 
-//    TextView max_speed;
-//    TextView max_acceleration;
+    float max_speed;
+    float max_acceleration;
+    float max_flight_climbed;
+    float max_heart_rate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
 
-//        max_speed = findViewById(R.id.max_speed);
-//        max_acceleration = findViewById(R.id.max_acceleration);
-//        try {
-//            FileInputStream fileIn = openFileInput("mytextfile.txt");
-//            InputStreamReader InputRead = new InputStreamReader(fileIn);
-//            char[] inputBuffer= new char[100];
-//            String s="";
-//            int charRead;
-//
-//            while ((charRead=InputRead.read(inputBuffer))>0) {
-//                // char to string conversion
-//                String readstring=String.copyValueOf(inputBuffer,0,charRead);
-//                s +=readstring;
-//            }
-//            InputRead.close();
-//            String items[] = s.split(" ");
-//            max_speed.setText(items[0]);
-//            max_acceleration.setText(items[1]);
-//        } catch (Exception e) {
-//            String s = "N/A";
-//            max_speed.setText((CharSequence)s);
-//        }
+        loadDB();
+        textViewRotation = (TextView) findViewById(R.id.dashb_id3);
         textViewAcceleration = (TextView) findViewById(R.id.dashb_id2);
         textViewStepCounter = (TextView) findViewById(R.id.dashb_id1);
         registerForSensorEvents();
@@ -124,6 +108,31 @@ public class DashBoardActivity extends AppCompatActivity{
                                   }, sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
                 SensorManager.SENSOR_DELAY_UI);
 
+        sManager.registerListener(new SensorEventListener() {
+
+                                      @Override
+                                      public void onSensorChanged(SensorEvent event) {
+                                          // Time is in nanoseconds, convert to millis
+                                          Sensor mySensor = event.sensor;
+
+                                          if (mySensor.getType() == Sensor.TYPE_GYROSCOPE) {
+                                              float x = event.values[0];
+                                              float y = event.values[1];
+                                              float z = event.values[2];
+                                              double omegaMagnitude = Math.sqrt(x*x + y*y + z*z);
+
+                                              if (omegaMagnitude > 0.5) {
+                                                  textViewRotation.setText(String.valueOf(omegaMagnitude));
+                                              }
+                                          }
+                                      }
+                                      @Override
+                                      public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+                                      }
+                                  }, sManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE),
+                SensorManager.SENSOR_DELAY_UI);
+
 
     }
 
@@ -152,6 +161,40 @@ public class DashBoardActivity extends AppCompatActivity{
         detectorTimeStampUpdaterThread.start();
     }
 
+    private void loadDB() {
+        try {
+            FileInputStream fileIn = openFileInput("mytextfile.txt");
+            InputStreamReader InputRead = new InputStreamReader(fileIn);
+            char[] inputBuffer= new char[100];
+            String s="";
+            int charRead;
+
+            while ((charRead=InputRead.read(inputBuffer))>0) {
+                // char to string conversion
+                String readstring=String.copyValueOf(inputBuffer,0,charRead);
+                s +=readstring;
+            }
+            InputRead.close();
+            String items[] = s.split(" ");
+            float values[] = Stringtofloat(items);
+            max_speed = values[0];
+            max_acceleration = values[1];
+            max_flight_climbed = values[2];
+            max_heart_rate = values[3];
+
+        } catch (Exception e) {
+
+        }
+
+    }
+
+    private float[] Stringtofloat(String [] stringArray) {
+        float[] floatArray = new float[stringArray.length];
+        for (int i = 0; i < stringArray.length; i++) {
+            floatArray[i] = Float.parseFloat(stringArray[i]);
+        }
+        return floatArray;
+    }
 
     @Override
     protected void onPause() {
