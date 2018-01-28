@@ -2,6 +2,7 @@ package com.example.personalsportplan;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,6 +43,9 @@ public class fillingFormActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        Intent intent = new Intent(this, DashBoardActivity.class);
+        startActivity(intent);
     }
 
 }
