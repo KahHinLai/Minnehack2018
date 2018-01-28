@@ -14,13 +14,14 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
+        android:text="Welcome Back"
+        android:textColor="#000000"
         android:textSize="50sp"
         android:textStyle="bold" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,18 +34,30 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:background="@color/black_overlay"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             tools:ignore="UselessParent">
 
+
             <Button
-                android:id="@+id/dummy_button"
+                android:id="@+id/continue_btn"
                 style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/dummy_button" />
+                android:text="Start A New Plan"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/new_btn"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Continue Current Plan"
+                android:textColor="#000000" />
 
         </LinearLayout>
+
     </FrameLayout>
 
 </FrameLayout>
