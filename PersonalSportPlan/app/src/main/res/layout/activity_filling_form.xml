@@ -6,4 +6,79 @@
     android:layout_height="match_parent"
     tools:context="com.example.personalsportplan.fillingFormActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Please fills the following textbox"
+                android:textAlignment="center"
+                android:textSize="24dp" />
+
+            <EditText
+                android:id="@+id/max_speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Max_Speed" />
+
+            <EditText
+                android:id="@+id/max_acceleration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Max_Acceleration" />
+
+            <EditText
+                android:id="@+id/max_heart_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Max_Heart_rate" />
+
+            <EditText
+                android:id="@+id/max_flights_climbed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Max_Flights_Climbed" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+
+            <Button
+                android:id="@+id/submit_new_form_btn"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Submit"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 </android.support.constraint.ConstraintLayout>

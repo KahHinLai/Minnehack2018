@@ -20,7 +20,7 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20px">
+            android:layout_margin="20dp">
 
             <TableRow
                 android:layout_width="313dp"
@@ -29,7 +29,7 @@
                 <TextView
                     android:layout_width="39dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8px"
+                    android:layout_margin="6dp"
                     android:background="@color/black_overlay"
                     android:text="ID1:"
                     android:textAlignment="center" />
@@ -38,7 +38,7 @@
                     android:id="@+id/dashb_id1"
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8px"
+                    android:layout_margin="6dp"
                     android:text="value1"
                     android:textAlignment="center" />
             </TableRow>
@@ -50,7 +50,7 @@
                 <TextView
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8px"
+                    android:layout_margin="6dp"
                     android:background="@color/black_overlay"
                     android:text="ID2:"
                     android:textAlignment="center" />
@@ -59,7 +59,7 @@
                     android:id="@+id/dashb_id2"
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8px"
+                    android:layout_margin="6dp"
                     android:text="value2"
                     android:textAlignment="center" />
             </TableRow>
@@ -71,7 +71,7 @@
                 <TextView
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8px"
+                    android:layout_margin="6dp"
                     android:background="@color/black_overlay"
                     android:text="ID3:"
                     android:textAlignment="center" />
@@ -80,7 +80,7 @@
                     android:id="@+id/dashb_id3"
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8px"
+                    android:layout_margin="6dp"
                     android:text="value3"
                     android:textAlignment="center" />
             </TableRow>
@@ -92,7 +92,7 @@
                 <TextView
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8px"
+                    android:layout_margin="6dp"
                     android:background="@color/black_overlay"
                     android:text="ID4:"
                     android:textAlignment="center" />
@@ -101,7 +101,7 @@
                     android:id="@+id/dashb_id4"
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8px"
+                    android:layout_margin="6dp"
                     android:text="value4"
                     android:textAlignment="center" />
             </TableRow>
@@ -113,7 +113,7 @@
                 <TextView
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8px"
+                    android:layout_margin="6dp"
                     android:background="@color/black_overlay"
                     android:text="ID5:"
                     android:textAlignment="center" />
@@ -122,7 +122,7 @@
                     android:id="@+id/dashb_id5"
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8px"
+                    android:layout_margin="6dp"
                     android:text="value5"
                     android:textAlignment="center" />
             </TableRow>
@@ -131,6 +131,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <TextView
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:textStyle="bold"
+                    android:text="Estimation time to return back to activity"
+                    android:textAlignment="center"
+                    android:textColor="#FB0019"/>
+
+                <TextView
+                    android:id="@+id/days_remain"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:text="num_of_days"
+                    android:textAlignment="center" />
 
             </TableRow>
 
@@ -142,7 +158,7 @@
             android:text="Alert"
             android:textAlignment="center"
             android:textSize="16sp"
-            android:layout_margin="16dp"
+            android:layout_margin="6dp"
             android:background="#FC2D1E"/>
 
 
