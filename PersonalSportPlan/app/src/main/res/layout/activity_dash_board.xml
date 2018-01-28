@@ -31,11 +31,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
                     android:background="@color/black_overlay"
-                    android:text="Max Speed:"
+                    android:text="Number of Steps"
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/max_speed"
+                    android:id="@+id/dashb_id1"
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
@@ -52,11 +52,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
                     android:background="@color/black_overlay"
-                    android:text="Max Acceleration:"
+                    android:text="ID2:"
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/max_acceleration"
+                    android:id="@+id/dashb_id2"
                     android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
