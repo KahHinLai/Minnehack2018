@@ -19,10 +19,11 @@ import org.w3c.dom.Text;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-public class DashBoardActivity extends AppCompatActivity {
+public class DashBoardActivity extends AppCompatActivity{
 
     private long timestamp;
     private TextView textViewStepCounter;
+    private TextView textViewAcceleration;
     private Thread detectorTimeStampUpdaterThread;
     private Handler handler;
     private boolean isRunning = true;
@@ -56,7 +57,7 @@ public class DashBoardActivity extends AppCompatActivity {
 //            String s = "N/A";
 //            max_speed.setText((CharSequence)s);
 //        }
-
+        textViewAcceleration = (TextView) findViewById(R.id.dashb_id2);
         textViewStepCounter = (TextView) findViewById(R.id.dashb_id1);
         registerForSensorEvents();
         setupDetectorTimestampUpdaterThread();
@@ -96,6 +97,34 @@ public class DashBoardActivity extends AppCompatActivity {
                                       }
                                   }, sManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR),
                 SensorManager.SENSOR_DELAY_UI);
+
+
+        sManager.registerListener(new SensorEventListener() {
+
+                                      @Override
+                                      public void onSensorChanged(SensorEvent event) {
+                                          // Time is in nanoseconds, convert to millis
+                                          Sensor mySensor = event.sensor;
+
+                                          if (mySensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+                                              float x = event.values[0];
+                                              float y = event.values[1];
+                                              float z = event.values[2];
+                                              double maccel = Math.sqrt(x*x + y*y + z*z);
+
+                                              if (maccel > 12) {
+                                                  textViewAcceleration.setText(String.valueOf(maccel-9.8));
+                                              }
+                                          }
+                                      }
+                                      @Override
+                                      public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+                                      }
+                                  }, sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_UI);
+
+
     }
 
     private void setupDetectorTimestampUpdaterThread() {
@@ -122,6 +151,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
         detectorTimeStampUpdaterThread.start();
     }
+
 
     @Override
     protected void onPause() {

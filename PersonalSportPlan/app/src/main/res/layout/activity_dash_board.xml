@@ -52,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
                     android:background="@color/black_overlay"
-                    android:text="ID2:"
+                    android:text="Acceleration:"
                     android:textAlignment="center" />
 
                 <TextView
