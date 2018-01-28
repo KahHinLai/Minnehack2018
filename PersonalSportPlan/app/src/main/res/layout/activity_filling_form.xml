@@ -54,6 +54,20 @@
                 android:ems="10"
                 android:inputType="number"
                 android:hint="Max_Flights_Climbed" />
+            <EditText
+                android:id="@+id/max_steps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Max_Steps" />
+            <EditText
+                android:id="@+id/max_rotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Max_Rotation" />
 
         </LinearLayout>
 

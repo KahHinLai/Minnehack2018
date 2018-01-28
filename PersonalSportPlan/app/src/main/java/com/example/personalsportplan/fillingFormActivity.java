@@ -17,6 +17,8 @@ public class fillingFormActivity extends AppCompatActivity {
     EditText max_acceleration;
     EditText max_flight_climbed;
     EditText max_heart_rate;
+    EditText max_steps;
+    EditText max_rotation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,8 @@ public class fillingFormActivity extends AppCompatActivity {
         max_acceleration = (EditText) findViewById(R.id.max_acceleration);
         max_flight_climbed = (EditText) findViewById(R.id.max_flights_climbed);
         max_heart_rate = (EditText) findViewById(R.id.max_heart_rate);
+        max_steps = (EditText) findViewById(R.id.max_steps);
+        max_rotation = (EditText) findViewById(R.id.max_rotation);
     }
 
     public void WriteBtn(View v) {
@@ -36,7 +40,8 @@ public class fillingFormActivity extends AppCompatActivity {
             String inputs = "";
             inputs += max_speed.getText().toString() + " " + max_acceleration.getText().toString()
                     + " " + max_flight_climbed.getText().toString() + " "
-                    + max_heart_rate.getText().toString();
+                    + max_heart_rate.getText().toString() + " " + max_steps.getText().toString()
+                    + " " + max_rotation.getText().toString();
             outputWriter.write(inputs);
             outputWriter.close();
 

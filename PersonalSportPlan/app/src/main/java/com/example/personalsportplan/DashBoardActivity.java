@@ -25,6 +25,7 @@ public class DashBoardActivity extends AppCompatActivity{
     private TextView textViewStepCounter;
     private TextView textViewAcceleration;
     private TextView textViewRotation;
+    private TextView AlertMessage;
     private Thread detectorTimeStampUpdaterThread;
     private Handler handler;
     private boolean isRunning = true;
@@ -33,6 +34,8 @@ public class DashBoardActivity extends AppCompatActivity{
     float max_acceleration;
     float max_flight_climbed;
     float max_heart_rate;
+    float max_steps;
+    float max_rotation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class DashBoardActivity extends AppCompatActivity{
         textViewStepCounter = (TextView) findViewById(R.id.dashb_id1);
         registerForSensorEvents();
         setupDetectorTimestampUpdaterThread();
+        AlertMessage = (TextView) findViewById(R.id.alert_message);
 
     }
     public void registerForSensorEvents() {
@@ -57,6 +61,9 @@ public class DashBoardActivity extends AppCompatActivity{
                                     public void onSensorChanged(SensorEvent event) {
                                         float steps = event.values[0];
                                         textViewStepCounter.setText((int) steps + "");
+                                        if(steps > max_steps) {
+                                            AlertMessage.setText("steps exceed max steps");
+                                        }
                                     }
 
                                     @Override
@@ -99,6 +106,9 @@ public class DashBoardActivity extends AppCompatActivity{
                                               if (maccel > 12) {
                                                   textViewAcceleration.setText(String.valueOf(maccel-9.8));
                                               }
+                                              if (maccel - 9.8 > max_acceleration) {
+                                                  AlertMessage.setText("acceleration exceed max acceleration");
+                                              }
                                           }
                                       }
                                       @Override
@@ -123,6 +133,9 @@ public class DashBoardActivity extends AppCompatActivity{
 
                                               if (omegaMagnitude > 0.5) {
                                                   textViewRotation.setText(String.valueOf(omegaMagnitude));
+                                              }
+                                              if (omegaMagnitude > max_rotation) {
+                                                  AlertMessage.setText("rotation exceed max rotation");
                                               }
                                           }
                                       }
@@ -165,7 +178,7 @@ public class DashBoardActivity extends AppCompatActivity{
         try {
             FileInputStream fileIn = openFileInput("mytextfile.txt");
             InputStreamReader InputRead = new InputStreamReader(fileIn);
-            char[] inputBuffer= new char[100];
+            char[] inputBuffer= new char[200];
             String s="";
             int charRead;
 
@@ -181,6 +194,8 @@ public class DashBoardActivity extends AppCompatActivity{
             max_acceleration = values[1];
             max_flight_climbed = values[2];
             max_heart_rate = values[3];
+            max_steps = values[4];
+            max_rotation = values[5];
 
         } catch (Exception e) {
 
