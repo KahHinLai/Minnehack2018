@@ -169,8 +169,8 @@
             android:textColor="#D1261C"
             android:textAllCaps="true"
             android:textStyle="bold"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:onClick="clearalert"/>
 
     </LinearLayout>
 

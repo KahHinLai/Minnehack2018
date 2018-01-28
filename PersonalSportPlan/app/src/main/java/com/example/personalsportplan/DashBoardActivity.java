@@ -217,4 +217,8 @@ public class DashBoardActivity extends AppCompatActivity{
         isRunning = false;
         detectorTimeStampUpdaterThread.interrupt();
     }
+
+    public void clearalert(View v) {
+      AlertMessage.setText("");
+    }
 }
