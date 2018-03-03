@@ -1,6 +1,6 @@
 # Minnehack2018
 Minnehack2018
-Android Mobile App
+Android Mobile App (built with Android studio)
 <br>
 Team Member:
   1. Danyang Wang
